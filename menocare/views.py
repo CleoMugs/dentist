@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.core.mail import send_email
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -15,11 +15,11 @@ def contact(request):
 		message = request.POST['message']
 
 		# send an email
-		send_email(
+		send_mail(
 			message_name, # subject
 			message, # message
 			message_email, # from email
-			['cleobantu@gmail.com', 'cleophas.mugeni@gmail.com'], # to email
+			['cleophas.mugeni@gmail.com'], # to email
 			)
 
 		context = {'message_name':message_name}
