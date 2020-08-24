@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Dento - Dentist &amp; Medical HTML Template</title>
+  <title>MenoCare - Contact &amp;</title>
 
   <!-- Favicon -->
   <link rel="icon" href="{% static 'img/core-img/favicon.ico' %}">
@@ -159,12 +159,16 @@
   </div>
   <!-- ***** Breadcrumb Area End ***** -->
 
-  <center>
-    <h2>Thanks {{ message_name }}!</h2>
-    <p>We received your email and we will respond shortly....</p>
-  </center>
+  
   <!-- ***** Contact Area Start ***** -->
-  <section class="dento-contact-area mt-50 mb-100">
+  {% if message_name %}
+    <center>
+      <h2>Thanks {{ message_name }}!</h2>
+      <p>We received your email and we will respond shortly....</p>
+    </center>
+    <br>
+  {% else %}
+  <section class="dento-contact-area mt-10 mb-50">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -223,6 +227,7 @@
       </div>
     </div>
   </section>
+  {% endif %}
   <!-- ***** Contact Area End ***** -->
 
   <!-- ***** Footer Area Start ***** -->
