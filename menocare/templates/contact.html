@@ -176,16 +176,14 @@
         <div class="col-12 col-md-4">
           <div class="contact-information">
             <h5>Address</h5>
-            <p>28 Jackson Street, Chicago, 7788569 USA</p>
+            <p>28 Chirikwa Road, Nairobi, 7788569 Kenya</p>
 
             <h5>Phone</h5>
-            <p>+84. 2252. 2250. 122</p>
+            <p>+254. 796. 567. 893</p>
 
-            <h5>Fax</h5>
-            <p>+84. 2252. 2250. 125</p>
 
             <h5>Email</h5>
-            <p class="mb-0">info.dento@gmail.com</p>
+            <p class="mb-0">info.menocare@gmail.com</p>
           </div>
         </div>
 
@@ -198,7 +196,8 @@
               <div class="line"></div>
             </div>
             <!-- Form -->
-            <form action="#" method="post">
+            <form action="{% url 'contact' %}" method="post">
+              {% csrf_token %}
               <div class="row">
                 <div class="col-lg-6">
                   <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
