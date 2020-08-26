@@ -28,3 +28,18 @@ def contact(request):
 	else:
 		#context = {}
 		return render(request, 'contact.html')
+
+
+def about(request):
+	context = {}
+	return render(request, 'about.html', context)
+
+
+def pricing(request):
+	context = {}
+	return render(request, 'pricing.html', context)
+
+
+def service(request):
+	context = {}
+	return render(request, 'service.html', context)
