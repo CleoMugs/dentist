@@ -20,7 +20,7 @@ def contact(request):
 			message, # message
 			message_email, # from email
 			['cleophas.mugeni@gmail.com'], # to email
-			)
+		)
 
 		context = {'message_name':message_name}
 		return render(request, 'contact.html', context )
