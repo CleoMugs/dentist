@@ -62,7 +62,7 @@ def appointment(request):
 			'Appointment Request', # subject
 			appointment, # message
 			your_email, # from email
-			['cleobantu@gmail.com'], # to email
+			['your_email'], # to email
 			)
 	
 		context = {'your_name': your_name, 
