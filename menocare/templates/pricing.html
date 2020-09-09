@@ -45,12 +45,13 @@
                 </tr>
               </thead>
               <tbody>
+                {% for pric in prics %}
                 <tr>
-                  <th scope="row">Teeth Whitening Service at home</th>
-                  <td>1 times</td>
-                  <td>Ksh 2000</td>
+                  <th scope="row">{{pric.service_name}}</th>
+                  <td>{{pric.stage}}</td>
+                  <td>{{pric.price}}</td>
                 </tr>
-                <tr>
+                <!--tr>
                   <th scope="row">Teeth Whitening Service at Dental Clinic</th>
                   <td>1 times</td>
                   <td>Ksh 5000</td>
@@ -124,8 +125,8 @@
                   <th scope="row">Implantation of an implant (price depends on system used)</th>
                   <td>1 tooth</td>
                   <td>Ksh 5500</td>
-                </tr>
-                    
+                </tr-->
+              {% endfor %} 
               </tbody>
             </table>
           </div>

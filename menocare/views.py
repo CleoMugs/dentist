@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
+from .models import Pricing
+
 # Create your views here.
 
 def home(request):
@@ -36,7 +38,8 @@ def about(request):
 
 
 def pricing(request):
-	context = {}
+	prics = Pricing.objects.all()
+	context = {'prics': prics}
 	return render(request, 'pricing.html', context)
 
 
