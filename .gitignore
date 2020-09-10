@@ -1,16 +1,3 @@
 .env
 
 
-{
-  "BusinessShortCode": "174379",
-  "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjAwOTAxMTgwMjAw",
-  "Timestamp": "20200901180200",
-  "TransactionType": "CustomerPayBillOnline",
-  "Amount": "5",
-  "PartyA": "254708252968",
-  "PartyB": "174379",
-  "PhoneNumber": "254708252968",
-    "CallBackURL": "http://fullstackdjango.com/lipanampesa/",
-  "AccountReference": "1122345",
-  "TransactionDesc": "Paid School Fees"
-}
