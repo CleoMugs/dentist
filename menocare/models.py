@@ -16,7 +16,7 @@ class Contact(models.Model):
 	client_msg = models.TextField()
 
 	def __str__(self):
-		return self.service_name
+		return self.client_name
 
 
 class Appointment(models.Model):
@@ -29,4 +29,4 @@ class Appointment(models.Model):
 	client_msg = models.TextField()
 
 	def __str__(self):
-		return self.service_name
+		return self.client_name
