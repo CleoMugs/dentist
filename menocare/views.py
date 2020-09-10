@@ -3,29 +3,9 @@ from django.core.mail import send_mail
 
 from .forms import ContactForm
 
-from .models import Pricing, Contact, Pricing
+from .models import Pricing, Contact, Appointment
 
 # Create your views here.
-
-def home(request):
-	context = {}
-	return render(request, 'home.html', context)
-
-
-def about(request):
-	context = {}
-	return render(request, 'about.html', context)
-
-
-def pricing(request):
-	prics = Pricing.objects.all()
-	context = {'prics': prics}
-	return render(request, 'pricing.html', context)
-
-
-def service(request):
-	context = {}
-	return render(request, 'service.html', context)
 
 
 def contact(request):
@@ -74,7 +54,7 @@ def appointment(request):
 		# send an email
 		appointment = "Name: " + client_name +" "+ "Phone: " + client_phone +" "+ '\n' "Email: " + client_email + "Address " +" "+ client_address +"Schedule: " +" "+ appt_time + '\n' "Day: " + appt_day +" "+ " Message: " + client_msg
 
-		obj =  Contact.objects.create(client_name=client_name, 
+		obj =  Appointment.objects.create(client_name=client_name, 
 									 client_phone=client_phone, 
 									 client_email=client_email,
 									 client_address=client_address,
@@ -89,7 +69,7 @@ def appointment(request):
 			'Appointment Request', # subject
 			appointment, # message
 			client_email, # from email
-			['client_email'], # to email
+			['cleophas.mugeni@gmail.com'], # to email
 			)
 	
 		context = {'client_name': client_name, 
@@ -106,3 +86,24 @@ def appointment(request):
 	else:
 		#context = {}
 		return render(request, 'home.html')
+
+
+def home(request):
+	context = {}
+	return render(request, 'home.html', context)
+
+
+def about(request):
+	context = {}
+	return render(request, 'about.html', context)
+
+
+def pricing(request):
+	prics = Pricing.objects.all()
+	context = {'prics': prics}
+	return render(request, 'pricing.html', context)
+
+
+def service(request):
+	context = {}
+	return render(request, 'service.html', context)
