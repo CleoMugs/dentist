@@ -6,8 +6,17 @@ from .models import *
 
 class PricingAdmin(admin.ModelAdmin):
 	list_display = ('service_name', 'stage', 'price')
-	list_filter = ("service_name",)
-	search_fields = ['service_name']
+
+class AppointmentAdmin(admin.ModelAdmin):
+	list_display = ('client_name', 'client_phone', 'client_email', 
+		            'client_address','appt_time', 'appt_day', 
+		            'client_msg' )
 	
+class ContactAdmin(admin.ModelAdmin):
+	list_display = ('client_name', 'client_email', 'client_msg')
+
+
 
 admin.site.register(Pricing, PricingAdmin)
+admin.site.register(Appointment, AppointmentAdmin)
+admin.site.register(Contact, ContactAdmin)

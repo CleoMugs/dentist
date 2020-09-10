@@ -1,35 +1,15 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
-from .models import Pricing
+from .forms import ContactForm
+
+from .models import Pricing, Contact, Pricing
 
 # Create your views here.
 
 def home(request):
 	context = {}
 	return render(request, 'home.html', context)
-
-
-def contact(request):
-	if request.method == 'POST':
-		message_name = request.POST['message-name']
-		message_email = request.POST['message-email']
-		message = request.POST['message']
-
-		# send an email
-		send_mail(
-			message_name, # subject
-			message, # message
-			message_email, # from email
-			['cleophas.mugeni@gmail.com'], # to email
-		)
-
-		context = {'message_name':message_name}
-		return render(request, 'contact.html', context )
-
-	else:
-		#context = {}
-		return render(request, 'contact.html')
 
 
 def about(request):
@@ -48,33 +28,77 @@ def service(request):
 	return render(request, 'service.html', context)
 
 
+def contact(request):
+	#form = ContactForm()
+
+	if request.method == 'POST':
+		#form = ContactForm(request.POST)
+
+		client_name = request.POST['message-name']
+		client_email = request.POST['message-email']
+		client_msg = request.POST['message']
+
+		obj =  Contact.objects.create(client_name=client_name, 
+									 client_email=client_email, 
+									 client_msg=client_msg)
+
+
+		obj.save()
+
+		# send an email
+		send_mail(
+			client_name, # subject
+			client_msg, # message
+			client_email, # from email
+			['cleophas.mugeni@gmail.com'], # to email
+		)
+
+		context = {'client_msg':client_msg}
+		return render(request, 'contact.html', context )
+
+	else:
+		#context = {}
+		return render(request, 'contact.html')
+
+
 def appointment(request):
 	if request.method == 'POST':
-		your_name = request.POST['your-name']
-		your_phone = request.POST['your-phone']
-		your_email = request.POST['your-email']
-		your_address = request.POST['your-address']
-		your_schedule = request.POST['your-scheldule']
-		your_date = request.POST['your-date']
-		your_message = request.POST['your-message']
+		client_name = request.POST['your-name']
+		client_phone = request.POST['your-phone']
+		client_email = request.POST['your-email']
+		client_address = request.POST['your-address']
+		appt_time = request.POST['your-scheldule']
+		appt_day = request.POST['your-date']
+		client_msg = request.POST['your-message']
 		
 		# send an email
-		appointment = "Name: " + your_name +" "+ "Phone: " + your_phone +" "+ '\n' "Email: " + your_email + "Address " +" "+ your_address +"Schedule: " +" "+ your_schedule + '\n' "Day: " + your_date +" "+ " Message: " + your_message
+		appointment = "Name: " + client_name +" "+ "Phone: " + client_phone +" "+ '\n' "Email: " + client_email + "Address " +" "+ client_address +"Schedule: " +" "+ appt_time + '\n' "Day: " + appt_day +" "+ " Message: " + client_msg
+
+		obj =  Contact.objects.create(client_name=client_name, 
+									 client_phone=client_phone, 
+									 client_email=client_email,
+									 client_address=client_address,
+									 appt_time=appt_time,
+									 appt_day=appt_day,
+									 client_msg=client_msg
+									 )
+
+		obj.save()
 
 		send_mail(
 			'Appointment Request', # subject
 			appointment, # message
-			your_email, # from email
-			['your_email'], # to email
+			client_email, # from email
+			['client_email'], # to email
 			)
 	
-		context = {'your_name': your_name, 
-				   'your_phone': your_phone, 
-				   'your_email': your_email,
-				   'your_address': your_address,
-				   'your_schedule': your_schedule,
-				   'your_date': your_date, 
-				   'your_message': your_message, 
+		context = {'client_name': client_name, 
+				   'client_phone': client_phone, 
+				   'client_email': client_email,
+				   'client_address': client_address,
+				   'appt_time': appt_time,
+				   'appt_day': appt_day, 
+				   'client_msg': client_msg, 
 
 		}
 		return render(request, 'appointment.html', context )
