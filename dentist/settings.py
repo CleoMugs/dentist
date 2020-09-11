@@ -95,28 +95,6 @@ WSGI_APPLICATION = 'dentist.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'menocare',
-        'USER':'cleo',
-        'PASSWORD':'kakosh123',
-        'HOST':'localhost',
-        'PORT':'5432'
-    }
-}
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-'''
-
-
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
@@ -173,7 +151,6 @@ EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER') 
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD') 
-
 
 
 django_heroku.settings(locals())
