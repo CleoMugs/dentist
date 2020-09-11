@@ -89,7 +89,8 @@ def appointment(request):
 
 
 def home(request):
-	context = {}
+	prics = Pricing.objects.all()
+	context = {'prics': prics}
 	return render(request, 'home.html', context)
 
 

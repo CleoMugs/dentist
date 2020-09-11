@@ -254,56 +254,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">Teeth Whitening Service at home</th>
-                  <td>1 times</td>
-                  <td>Ksh 8000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Teeth Whitening Service at Dental Clinic</th>
-                  <td>1 times</td>
-                  <td>Ksh 3000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Ceramic crowns and fillings Dental porcelain</th>
-                  <td>1 times</td>
-                  <td>Ksh 4000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Remove crowns, bridges Service</th>
-                  <td>1 tooth</td>
-                  <td>Ksh 6000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Covering the recession of the gums</th>
-                  <td>1 times</td>
-                  <td>Ksh 3000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Consultation, impressions and preparation of models</th>
-                  <td>1 times</td>
-                  <td>Ksh 2000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Removal of an old inlay, old crown</th>
-                  <td>1 times</td>
-                  <td>Ksh 4000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Overlay teeth whitening ( 2 arches)</th>
-                  <td>1 times</td>
-                  <td>Ksh 3000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Standard porcelain and zirconium crown on implant</th>
-                  <td>1 tooth</td>
-                  <td>Ksh 4000.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">Implantation of an implant (price depends on system used)</th>
-                  <td>1 tooth</td>
-                  <td>Ksh 7000.00</td>
-                </tr>
+                {% for pric in prics %}
+                  <tr>
+                    <th scope="row">{{pric.service_name}}</th>
+                    <td>{{pric.stage}}</td>
+                    <td>{{pric.price}}</td>
+                  </tr>
+                {% endfor %} 
+
               </tbody>
             </table>
           </div>
