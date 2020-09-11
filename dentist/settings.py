@@ -94,10 +94,8 @@ WSGI_APPLICATION = 'dentist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
 DATABASES = {}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-
 
 
 # Password validation
@@ -142,7 +140,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
