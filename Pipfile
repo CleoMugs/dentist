@@ -12,6 +12,7 @@ django-heroku = "*"
 python-decouple = "*"
 python-dotenv = "*"
 dj-database-url = "*"
+unipath = "*"
 
 [requires]
 python_version = "3.6"
