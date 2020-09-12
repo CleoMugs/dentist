@@ -94,17 +94,23 @@ def home(request):
 	return render(request, 'home.html', context)
 
 
-def about(request):
-	context = {}
-	return render(request, 'about.html', context)
-
-
 def pricing(request):
 	prics = Pricing.objects.all()
 	context = {'prics': prics}
 	return render(request, 'pricing.html', context)
 
+	
+def about(request):
+	context = {}
+	return render(request, 'about.html', context)
+
+
 
 def service(request):
 	context = {}
 	return render(request, 'service.html', context)
+
+
+def blog(request):
+	context = {}
+	return render(request, 'blog.html', context)
