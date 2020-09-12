@@ -1,6 +1,6 @@
 from django.db import models
 
-
+'''***********************Dentist***************************'''
 class Pricing(models.Model):
 	service_name = models.CharField(max_length=400, null=True)
 	stage = models.CharField(max_length=200, null=True)
@@ -30,3 +30,49 @@ class Appointment(models.Model):
 
 	def __str__(self):
 		return self.client_name
+
+
+'''***********************Blog***************************'''
+
+class Post(models.Model):
+	title = models.CharField(max_length=200, unique=True)
+	slug = models.SlugField(max_length=200, unique=True)
+	author = models.CharField(max_length=200, unique=True)
+	updated_on = models.DateTimeField(auto_now=True)
+	content = models.TextField()
+	created_on = models.DateTimeField(auto_now_add=True)
+	#status = models.IntegerField(choices=STATUS, default=0)
+
+
+
+	class Meta:
+		ordering = ['-created_on']
+
+	def __str__(self):
+		return self.title
+
+	def get_absolute_url(self):
+		kwargs = {'slug': self.slug} #, 'pk':self.id}
+
+		return reverse("post_detail", kwargs=kwargs)
+
+
+
+class Comment(models.Model):
+	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+	name = models.CharField(max_length=80)
+	email = models.EmailField()
+	body = models.TextField()
+	created_on = models.DateTimeField(auto_now_add=True)
+	active = models.BooleanField(default=True)
+
+
+	class Meta:
+		ordering = ['-created_on']
+
+	def __str__(self):
+		return 'Comment {self.body} by {self.name}'
+
+	def snippet(self):
+		return self.body[:100] + "..."
+
