@@ -6,7 +6,8 @@
 {% block content %}
 
   <!-- ***** Breadcrumb Area Start ***** -->
-  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url(img/bg-img/12.jpg);">
+  
+  <div class="breadcumb-area bg-img bg-gradient-overlay" style="background-image: url({% static 'img/bg-img/12.jpg' %});">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-12">
@@ -42,7 +43,7 @@
             <!-- Blog Thumbnail -->
             <div class="blog-thumbnail">
               <a href="./blog-details.html">
-                <img src="./img/bg-img/16.jpg" alt="">
+                <img src="{% static 'img/bg-img/16.jpg' %}" alt="">
               </a>
             </div>
             <!-- Blog Content -->
@@ -61,7 +62,7 @@
             <!-- Blog Thumbnail -->
             <div class="blog-thumbnail">
               <a href="./blog-details.html">
-                <img src="./img/bg-img/17.jpg" alt="">
+                <img src="{% static 'img/bg-img/17.jpg' %}" alt="">
               </a>
             </div>
             <!-- Blog Content -->
@@ -75,12 +76,13 @@
             </div>
           </div>
 
+
           <!-- Single Blog Item -->
           <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
             <!-- Blog Thumbnail -->
             <div class="blog-thumbnail">
               <a href="./blog-details.html">
-                <img src="./img/bg-img/18.jpg" alt="">
+                <img src="{% static 'img/bg-img/18.jpg' %}" alt="">
               </a>
             </div>
             <!-- Blog Content -->
@@ -94,12 +96,13 @@
             </div>
           </div>
 
+
           <!-- Single Blog Item -->
           <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
             <!-- Blog Thumbnail -->
             <div class="blog-thumbnail">
               <a href="./blog-details.html">
-                <img src="./img/bg-img/19.jpg" alt="">
+                <img src="{% static 'img/bg-img/19.jpg' %}" alt="">
               </a>
             </div>
             <!-- Blog Content -->
@@ -113,12 +116,13 @@
             </div>
           </div>
 
+
           <!-- Single Blog Item -->
           <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
             <!-- Blog Thumbnail -->
             <div class="blog-thumbnail">
               <a href="./blog-details.html">
-                <img src="./img/bg-img/20.jpg" alt="">
+                <img src="{% static 'img/bg-img/20.jpg' %}" alt="">
               </a>
             </div>
             <!-- Blog Content -->
@@ -171,11 +175,10 @@
             <!-- Single Widget Area -->
             <div class="single-widget-area news-widget">
               <h5 class="widget-title">Recent News</h5>
-
               <!-- Single News Area -->
               <div class="single-news-area d-flex align-items-center">
                 <div class="blog-thumbnail">
-                  <img src="./img/bg-img/21.jpg" alt="">
+                  <img src="{% static 'img/bg-img/21.jpg' %}" alt="">
                 </div>
                 <div class="blog-content">
                   <a href="#" class="post-title">Tooth decay: why good dental hygiene is important</a>
@@ -186,7 +189,7 @@
               <!-- Single News Area -->
               <div class="single-news-area d-flex align-items-center">
                 <div class="blog-thumbnail">
-                  <img src="./img/bg-img/22.jpg" alt="">
+                  <img src="{% static 'img/bg-img/22.jpg' %}" alt="">
                 </div>
                 <div class="blog-content">
                   <a href="#" class="post-title">Six reasons your breath might smell like poop</a>
@@ -194,10 +197,11 @@
                 </div>
               </div>
 
+
               <!-- Single News Area -->
               <div class="single-news-area d-flex align-items-center">
                 <div class="blog-thumbnail">
-                  <img src="./img/bg-img/23.jpg" alt="">
+                  <img src="{% static 'img/bg-img/23.jpg' %}" alt="">
                 </div>
                 <div class="blog-content">
                   <a href="#" class="post-title">Everything you need to know about sinus infection</a>
@@ -206,9 +210,11 @@
               </div>
             </div>
 
+
+
             <!-- Single Widget Area -->
             <div class="single-widget-area adds-widget">
-              <a href="#"><img class="w-100" src="./img/bg-img/adds.png" alt=""></a>
+              <a href="#"><img class="w-100" src="{% static 'img/bg-img/adds.png' %}" alt=""></a>
             </div>
 
           </div>
