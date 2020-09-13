@@ -13,6 +13,7 @@ python-decouple = "*"
 python-dotenv = "*"
 dj-database-url = "*"
 unipath = "*"
+django-social-share = "*"
 
 [requires]
 python_version = "3.6"

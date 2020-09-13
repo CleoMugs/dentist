@@ -114,3 +114,12 @@ def service(request):
 def blog(request):
 	context = {}
 	return render(request, 'blog.html', context)
+
+def blog_details(request):
+	context = {}
+	return render(request, 'blog_details.html', context)
+
+
+def post_to_facebook(request):
+	context = {}
+	return render(request, 'post_to_facebook.html', context)
