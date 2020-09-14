@@ -117,7 +117,7 @@ def blog(request):
 
 def blog_details(request):
 	context = {}
-	return render(request, 'blog_details.html', context)
+	return render(request, 'blog-details.html', context)
 
 
 def post_to_facebook(request):

@@ -10,7 +10,7 @@ urlpatterns = [
     path('appointment.html', views.appointment, name='appointment'),
 
     path('blog.html', views.blog, name='blog'),
-    path('blog_details.html', views.blog_details, name='blog-details'),
+    path('blog-details.html', views.blog_details, name='blog_details'),
 
 
     path('post_to_facebook.html', views.blog_details, name='post_to_facebook'),
