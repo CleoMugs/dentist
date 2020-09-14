@@ -43,7 +43,8 @@
               <!-- Blog Thumbnail -->
               <div class="blog-thumbnail">
                 <a href="{% url 'blog_details' %}">
-                  <img src="{{ post.photo }" alt="">
+                  <img src="{% static 'img/bg-img/20.jpg' %}" alt="">
+                  <!--img src="{{ post.photo }" alt=""-->
                 </a>
               </div>
               <!-- Blog Content -->
@@ -51,12 +52,12 @@
 
                  <a href="{% url 'blog_details' %}" class="post-title">{{ post.title }}</a>
 
-                <p>{{ post.content }}<a href="{% url 'blog_details' %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
+                <p>{{ post.content|safe|truncatewords_html:20 }}.... <a href="{% url 'blog_details' %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
                 
 
                 <div class="post-meta">
-                  <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on }} </a>
-                  <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+                  <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on|date:"d M, Y" }} </a>
+                  <a href="{% url 'blog_details' %}"><i class="icon_chat_alt"></i> 3 Comments</a>
                 </div>
               </div>
             </div>

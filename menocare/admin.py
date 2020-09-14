@@ -17,6 +17,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
 	list_display = ('photo', 'title', 'content', 'created_on')
+	prepopulated_fields = {'slug': ('title',)}
 
 admin.site.register(Pricing, PricingAdmin)
 admin.site.register(Appointment, AppointmentAdmin)

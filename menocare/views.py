@@ -111,10 +111,11 @@ def service(request):
 	context = {}
 	return render(request, 'service.html', context)
 
-
+'''
 def blog(request):
 	context = {}
 	return render(request, 'blog.html', context)
+'''
 
 def blog_details(request):
 	context = {}
@@ -130,5 +131,6 @@ def post_to_facebook(request):
 class PostList(generic.ListView):
 	template_name = 'blog.html'
 	queryset = Post.objects.order_by('-created_on') 
-	context_object_name = 'posts' #revisit later
-	paginate_by = 4
+	context_object_name = 'posts' 
+	paginate_by = 2
+	print(5)

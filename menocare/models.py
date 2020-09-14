@@ -43,8 +43,6 @@ class Post(models.Model):
 
 	slug = models.SlugField(max_length=200, unique=True, null=True)
 	author = models.CharField(max_length=200, unique=True, null=True)
-	updated_on = models.DateTimeField(auto_now=True, null=True)
-	
 	
 	#status = models.IntegerField(choices=STATUS, default=0)
 
