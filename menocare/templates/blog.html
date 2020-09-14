@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} MenoCare|Blog {% endblock %}
-{% block meta_description %} Find our current prices for services {% endblock %}
 
 {% block content %}
 
@@ -39,103 +38,29 @@
         <div class="col-12 col-lg-8">
 
           <!-- Single Blog Item -->
-          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-              <a href="./blog-details.html">
-                <img src="{% static 'img/bg-img/16.jpg' %}" alt="">
-              </a>
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">How your mouth bacteria can harm your lungs</a>
+          {% for post in posts %}
+            <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
+              <!-- Blog Thumbnail -->
+              <div class="blog-thumbnail">
+                <a href="{% url 'blog_details' %}">
+                  <img src="{{ post.photo }" alt="">
+                </a>
+              </div>
+              <!-- Blog Content -->
+              <div class="blog-content">
 
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam nec tincidunt interdum ante consectetur dapibus molestie... <a href="" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &rarr;</a></p>
-              
+                 <a href="{% url 'blog_details' %}" class="post-title">{{ post.title }}</a>
 
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+                <p>{{ post.content }}<a href="{% url 'blog_details' %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
+                
+
+                <div class="post-meta">
+                  <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on }} </a>
+                  <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Single Blog Item -->
-          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-              <a href="./blog-details.html">
-                <img src="{% static 'img/bg-img/17.jpg' %}" alt="">
-              </a>
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">What is the best kind of toothpaste to use?</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam nec tincidunt interdum ante consectetur dapibus molestie ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Single Blog Item -->
-          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-              <a href="./blog-details.html">
-                <img src="{% static 'img/bg-img/18.jpg' %}" alt="">
-              </a>
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">Why you should avoid sipping your drinks</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam nec tincidunt interdum ante consectetur dapibus molestie ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Blog Item -->
-          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-              <a href="./blog-details.html">
-                <img src="{% static 'img/bg-img/19.jpg' %}" alt="">
-              </a>
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">How long does numbness last after the dentist?</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam nec tincidunt interdum ante consectetur dapibus molestie ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Blog Item -->
-          <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
-            <!-- Blog Thumbnail -->
-            <div class="blog-thumbnail">
-              <a href="./blog-details.html">
-                <img src="{% static 'img/bg-img/20.jpg' %}" alt="">
-              </a>
-            </div>
-            <!-- Blog Content -->
-            <div class="blog-content">
-              <a href="./blog-details.html" class="post-title">Lie bumps (transient lingual papillitis): What to know</a>
-              <p>Donec tempor, lorem et euismod eleifend, est lectus laoreet ante, sed accusan justo diam nec tincidunt interdum ante consectetur dapibus molestie ...</p>
-              <div class="post-meta">
-                <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-                <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
           <!-- Pagination -->
           <nav class="dento-pagination mb-100">
@@ -221,5 +146,5 @@
     </div>
   </section>
   <!-- *****Blog Area End ***** -->
-{% endblock content%}
+{% endblock content %}
   

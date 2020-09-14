@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 
+from django.views import generic
+
 from .forms import ContactForm
 
-from .models import Pricing, Contact, Appointment
+from .models import Pricing, Contact, Appointment, Post, Comment
 
 # Create your views here.
 
@@ -105,7 +107,6 @@ def about(request):
 	return render(request, 'about.html', context)
 
 
-
 def service(request):
 	context = {}
 	return render(request, 'service.html', context)
@@ -123,3 +124,11 @@ def blog_details(request):
 def post_to_facebook(request):
 	context = {}
 	return render(request, 'post_to_facebook.html', context)
+
+
+
+class PostList(generic.ListView):
+	template_name = 'blog.html'
+	queryset = Post.objects.order_by('-created_on') 
+	context_object_name = 'posts' #revisit later
+	paginate_by = 4

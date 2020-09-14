@@ -15,8 +15,11 @@ class AppointmentAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
 	list_display = ('client_name', 'client_email', 'client_msg')
 
-
+class PostAdmin(admin.ModelAdmin):
+	list_display = ('photo', 'title', 'content', 'created_on')
 
 admin.site.register(Pricing, PricingAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(Post, PostAdmin)
+
