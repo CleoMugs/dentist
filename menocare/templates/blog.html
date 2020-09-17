@@ -42,7 +42,7 @@
             <div class="single-blog-item style-2 d-flex flex-wrap align-items-center mb-50">
               <!-- Blog Thumbnail -->
               <div class="blog-thumbnail">
-                <a href="{% url 'blog_details' %}">
+                <a href="{% url 'blog_details' post.slug %}">
                   <img src="{% static 'img/bg-img/16.jpg' %}" alt="">
                   <!--img src="{{ post.photo }" alt=""-->
                 </a>
@@ -50,14 +50,14 @@
               <!-- Blog Content -->
               <div class="blog-content">
 
-                 <a href="{% url 'blog_details' %}" class="post-title">{{ post.title }}</a>
+                 <a href="{% url 'blog_details' post.slug %}" class="post-title">{{ post.title }}</a>
 
-                <p>{{ post.content|safe|truncatewords_html:20 }}.... <a href="{% url 'blog_details' %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
+                <p>{{ post.content|safe|truncatewords_html:20 }}.... <a href="{% url 'blog_details' post.slug %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
                 
 
                 <div class="post-meta">
                   <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on|date:"d M Y" }} </a>
-                  <a href="{% url 'blog_details' %}"><i class="icon_chat_alt"></i> {{ post.comments.count }} Comments</a>
+                  <a href="{% url 'blog_details' post.slug %}"><i class="icon_chat_alt"></i> {{ post.comments.count }} Comments</a>
                 </div>
               </div>
             </div>

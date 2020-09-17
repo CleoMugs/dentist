@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load social_share %}
-{% block title %} MenoCare|Contact {% endblock %}
+{% block title %} MenoCare|Blog Details {% endblock %}
 {% block meta_description %} This is menocare website {% endblock %}
 
 {% block content %}
@@ -42,15 +42,14 @@
           <div class="blog-details-area">
             <!--img src="{% static 'img/bg-img/17.jpg' %}" alt=""-->
 
-            <h2 class="post-title">How your mouth bacteria can harm lungs</h2>
+            <h2 class="post-title">{{ post.title }}</h2>
             <div class="post-meta">
-              <a href="#"><i class="icon_clock_alt"></i> 28 Sep 2018</a>
-              <a href="#"><i class="icon_chat_alt"></i> 3 Comments</a>
+              <a href="#"><i class="icon_clock_alt"></i> {{ post.created_on|date:"d M Y"}}</a>
+              <a href="#"><i class="icon_chat_alt"></i> {{ comments.count }} Comments</a>
             </div>
-            <p>Donec tempor, lorem et euismod elefend, est lectus laoreet ante, sed acusan justo diam nec tincidunt interdum ante consectetur dapibus molestie utsalism eleifend metus lacus nec neque. Donec pellentesque nisl nec ligula tempor congue.
-              Nullam rutrum nunc and dapibus interdum. Nunc accumsan dictum mollis. Morbi ac convallis sem, a venenatis lacus. Phasellus in massa in ligula placerat tempus. Quisque id egestas odio, eget accumsan odio. Nunc vel turpis viverra quam
-              imperdiet pellentesque. Nunc vitae sapien eu lorem convallis cursus nec lectus. Praesent cursus ornare lacus ac aliquet.</p>
-            <p>Vestibulum vel ante a quam consectetur volutpat eu a felis. Nullam non dui quis massa condimentum porttitor non ut nisi. Maecenas congue scelerisque purus, eget molestie ligulan volutpatut. Integer artor miss, cursussed efficitur non,
+            <p>{{ post.content | safe }}
+
+
             </p>
             <blockquote cite="" class="dento-blockquote d-flex">
               <div class="icon">
@@ -61,14 +60,9 @@
                 <h6>Geoffrey Canada / <span>Social Activist</span></h6>
               </div>
             </blockquote>
-            <p>Proin venenatis elementum pretium. Vivamus mollis iaculis mi, a efficitur turpis maximus non. Sed felis sapien, aliquam eu nunc in, tempus interdum turpis. In in porta nulla. Maecenas ut elit nec nibh vehicula auctor eget felis. Nulla
-              finibus dictum augue ullamcorper. Integer nuamcorper lorem sit down amet dignissim tincidunt.
-              Utsu risus feugiat, scelerisque turpis eu, suscipit orci. Fusce indo diam ipsum. Nulla facilisi class aptent taciti
-              litora torquent per conubia nostra, per inceptos himenaeos.</p>
-
+            
             <img src="{% static 'img/bg-img/25.jpg' %}" alt="">
-            <p>Nunc vitae nisl porttitor, consectetur sapien vel, vulputate orci. Sed viverra, neque action lacinia hendrerit, lectus purus pellentesque dui, eu porttitor enim neque vitae magna. Nunc nec eros nonta risus vestibulum feugiat. In
-              semper tempor sem, eget porttitor dolor convallis sit amet. Praesent ut justo augue. Curabitur id elit nisi. Vivamus varius lacus sit amet nisi lacinia, sed pulvinar odio rhoncus. In sagittis aliquet tellus posuere ac accumsan scelerisque, eleifend quis dui, quisque cursus congue nibh pretium blandit.</p>
+            
           </div>
 
           <!-- Post Share  -->

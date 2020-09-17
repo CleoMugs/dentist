@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 
 from django.views import generic
@@ -132,7 +132,7 @@ class PostList(generic.ListView):
 	template_name = 'blog.html'
 	queryset = Post.objects.order_by('-created_on') 
 	context_object_name = 'posts' 
-	paginate_by = 4
+	paginate_by = 3
 	
 
 # class-based views
@@ -151,3 +151,14 @@ def blog_detail(request, slug):
 	context = {'post':post, 'comments':comments,}
 	return render(request, template_name, context)
 
+
+
+'''
+def blog_detail(request):
+	template_name = 'blog_details.html'
+	#post = get_object_or_404(Post, pk=pk)
+	#comments = post.comments
+
+	context = {}#'post':post, 'comments':comments,}
+	return render(request, template_name, context)
+'''
