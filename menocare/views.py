@@ -134,15 +134,20 @@ class PostList(generic.ListView):
 	context_object_name = 'posts' 
 	paginate_by = 4
 	
-'''
+
 # class-based views
 class PostDetail(generic.DetailView):
 	model = Post
-	template_name = 'post_details.html'
+	template_name = 'blog_details.html'
 	query_pk_and_slug = True
 
-'''
 
-def blog_detail(request):
-	context = {}
-	return render(request, 'blog_details.html', context)
+
+def blog_detail(request, slug):
+	template_name = 'blog_details.html'
+	post = get_object_or_404(Post, slug=slug)
+	comments = post.comments
+
+	context = {'post':post, 'comments':comments,}
+	return render(request, template_name, context)
+

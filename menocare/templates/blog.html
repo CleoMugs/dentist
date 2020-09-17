@@ -57,7 +57,7 @@
 
                 <div class="post-meta">
                   <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on|date:"d M Y" }} </a>
-                  <a href="{% url 'blog_details' %}"><i class="icon_chat_alt"></i> 3 Comments</a>
+                  <a href="{% url 'blog_details' %}"><i class="icon_chat_alt"></i> {{ post.comments.count }} Comments</a>
                 </div>
               </div>
             </div>

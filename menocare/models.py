@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 '''***********************Dentist***************************'''
 class Pricing(models.Model):
@@ -41,7 +43,7 @@ class Post(models.Model):
 	photo = models.ImageField(default="default.jpg", upload_to='images')
 
 
-	slug = models.SlugField(max_length=200, unique=True, null=True)
+	slug = models.SlugField(max_length=200, unique=True)
 	author = models.CharField(default="MenoCare", max_length=200, unique=True, null=True)
 	
 	#status = models.IntegerField(choices=STATUS, default=0)
@@ -50,16 +52,16 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
-	'''
+	
 	class Meta:
 		ordering = ['-created_on']
 
 	def get_absolute_url(self):
 		kwargs = {'slug': self.slug} #, 'pk':self.id}
 
-		return reverse("post_detail", kwargs=kwargs)
+		return reverse("blog_detail", kwargs=kwargs)
 
-	'''
+	
 
 class Comment(models.Model):
 	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

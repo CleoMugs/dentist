@@ -12,10 +12,14 @@ urlpatterns = [
     #path('blog.html', views.blog, name='blog'),
 
 
-    path('post_to_facebook.html', views.blog_detail, name='post_to_facebook'),
+    #path('post_to_facebook.html', views.blog_detail, name='post_to_facebook'),
 
     path('blog.html', views.PostList.as_view(), name='blog'),
+    #path('blog_details.html', PostDetail.as_view(), name='blog_details'),
+
     path('blog_details.html', views.blog_detail, name='blog_details'),
+    path('<slug:slug>/', views.blog_detail, name='blog_detail'),
+    
 
 ]
 

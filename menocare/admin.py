@@ -16,7 +16,7 @@ class ContactAdmin(admin.ModelAdmin):
 	list_display = ('client_name', 'client_email', 'client_msg')
 
 class PostAdmin(admin.ModelAdmin):
-	list_display = ('title', 'content', 'created_on', 'photo')
+	list_display = ('title', 'content', 'created_on', 'slug')
 	prepopulated_fields = {'slug': ('title',)}
 
 class CommentAdmin(admin.ModelAdmin):
