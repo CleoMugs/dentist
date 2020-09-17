@@ -111,15 +111,6 @@ def service(request):
 	context = {}
 	return render(request, 'service.html', context)
 
-'''
-def blog(request):
-	context = {}
-	return render(request, 'blog.html', context)
-'''
-
-def blog_details(request):
-	context = {}
-	return render(request, 'blog-details.html', context)
 
 
 def post_to_facebook(request):
@@ -128,9 +119,30 @@ def post_to_facebook(request):
 
 
 
+# function-based views
+'''
+def blog(request):
+	context = {}
+	return render(request, 'blog.html', context)
+'''
+
+
+# class-based views
 class PostList(generic.ListView):
 	template_name = 'blog.html'
 	queryset = Post.objects.order_by('-created_on') 
 	context_object_name = 'posts' 
-	paginate_by = 2
-	print(5)
+	paginate_by = 4
+	
+'''
+# class-based views
+class PostDetail(generic.DetailView):
+	model = Post
+	template_name = 'post_details.html'
+	query_pk_and_slug = True
+
+'''
+
+def blog_detail(request):
+	context = {}
+	return render(request, 'blog_details.html', context)

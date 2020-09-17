@@ -42,7 +42,7 @@ class Post(models.Model):
 
 
 	slug = models.SlugField(max_length=200, unique=True, null=True)
-	author = models.CharField(max_length=200, unique=True, null=True)
+	author = models.CharField(default="MenoCare", max_length=200, unique=True, null=True)
 	
 	#status = models.IntegerField(choices=STATUS, default=0)
 
@@ -67,6 +67,8 @@ class Comment(models.Model):
 	email = models.EmailField()
 	body = models.TextField()
 	created_on = models.DateTimeField(auto_now_add=True)
+	photo = models.ImageField(default="default.jpg", upload_to='images')
+
 	active = models.BooleanField(default=True)
 
 

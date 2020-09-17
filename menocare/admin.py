@@ -21,10 +21,11 @@ class PostAdmin(admin.ModelAdmin):
 
 class CommentAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'body',)
-	prepopulated_fields = {'slug': ('name',)}
+	#prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Pricing, PricingAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)
 
