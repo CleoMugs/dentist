@@ -16,8 +16,12 @@ class ContactAdmin(admin.ModelAdmin):
 	list_display = ('client_name', 'client_email', 'client_msg')
 
 class PostAdmin(admin.ModelAdmin):
-	list_display = ('photo', 'title', 'content', 'created_on')
+	list_display = ('title', 'content', 'created_on', 'photo')
 	prepopulated_fields = {'slug': ('title',)}
+
+class CommentAdmin(admin.ModelAdmin):
+	list_display = ('name', 'email', 'body',)
+	prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Pricing, PricingAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
