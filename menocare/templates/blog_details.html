@@ -47,7 +47,7 @@
               <a href="#"><i class="icon_clock_alt"></i> {{ post.created_on|date:"d M Y"}}</a>
               <a href="#"><i class="icon_chat_alt"></i> {{ comments.count }} Comments</a>
             </div>
-            <p>{{ post.content | safe }}
+            <p>{{ post.content|safe }}
 
 
             </p>
@@ -77,20 +77,49 @@
             <a href="#" class="pinterest"><i class="fa fa-snapchat"></i> Share</a>
           </div>
 
+
+
           <!-- Comments Area -->
           <div class="comment_area clearfix">
-            <h5 class="title">3 Comments</h5>
+            <h5 class="title">{{ comments.count }} Comments</h5>
+    
+            {% for comment in comments %}
+              <ol>
+                <!--Single Comment Area -->
+                <li class="single_comment_area">
+                  <!-- Comment Content-->
+                  <div class="comment-content d-flex">
+                    <!-- Comment Author -->
+                    <div class="comment-author">
+                      <img src="{% static 'img/bg-img/26.jpg' %}" alt="author">
+                    </div>
+                    <!--Singleomment Meta-->
+                    <div class="comment-meta">
+                      <a href="#" class="post-author">{{ comment.name }} / <span>{{ comment.created_on }}</span></a>
+                      <p>{{ comment.content }}</p>
+                      <a href="#" class="comment-reply">Reply</a>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+            {% endfor %}
+
+          </div>
+
+          <!-- Comments Area -->
+          <!--div class="comment_area clearfix">
+            <h5 class="title">{{ comments.count }} Comments</h5>
 
             <ol>
-              <!-- Single Comment Area -->
+              < Single Comment Area >
               <li class="single_comment_area">
-                <!-- Comment Content -->
+                < Comment Content>
                 <div class="comment-content d-flex">
-                  <!-- Comment Author -->
+                  < Comment Author >
                   <div class="comment-author">
                     <img src="{% static 'img/bg-img/26.jpg' %}" alt="author">
                   </div>
-                  <!-- Comment Meta -->
+                  < Comment Meta >
                   <div class="comment-meta">
                     <a href="#" class="post-author">Tom Hardy / <span>28 Sep 2018 at 10:00 am</span></a>
                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore.</p>
@@ -99,13 +128,13 @@
                 </div>
                 <ol class="children">
                   <li class="single_comment_area">
-                    <!-- Comment Content -->
+                    < Comment Content >
                     <div class="comment-content d-flex">
-                      <!-- Comment Author -->
+                      < Comment Author >
                       <div class="comment-author">
                         <img src="{% static 'img/bg-img/27.jpg' %}" alt="author">
                       </div>
-                      <!-- Comment Meta -->
+                      < Comment Meta >
                       <div class="comment-meta">
                         <a href="#" class="post-author">Samantha Harvey / <span>28 Sep 2018 at 10:30 am</span></a>
                         <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore.</p>
@@ -116,15 +145,15 @@
                 </ol>
               </li>
 
-              <!-- Single Comment Area -->
+              < Single Comment Area >
               <li class="single_comment_area">
-                <!-- Comment Content -->
+                < Comment Content >
                 <div class="comment-content d-flex">
-                  <!-- Comment Author -->
+                  < Comment Author >
                   <div class="comment-author">
                     <img src="{% static 'img/bg-img/28.jpg' %}" alt="author"> 
                   </div>
-                  <!-- Comment Meta -->
+                  < Comment Meta >
                   <div class="comment-meta">
                     <a href="#" class="post-author">Jonny Evans / <span>28 Sep 2018 at 11:00 am</span></a>
                     <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sitdown ameto, consectetur, adipisci velit, sed quiata non numqua eius modi tempor incidunt ut labore.</p>
@@ -133,7 +162,7 @@
                 </div>
               </li>
             </ol>
-          </div>
+          </div-->
 
           <!-- Leave A Reply -->
           <div class="contact-form mt-30">
