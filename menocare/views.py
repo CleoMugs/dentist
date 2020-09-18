@@ -141,12 +141,13 @@ class PostList(generic.ListView):
 	
 
 # class-based views
+'''
 class PostDetail(generic.DetailView):
 	model = Post
 	template_name = 'blog_details.html'
 	query_pk_and_slug = True
 
-
+'''
 
 def blog_detail(request, slug):
 	template_name = 'blog_details.html'
