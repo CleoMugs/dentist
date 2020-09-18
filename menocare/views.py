@@ -89,35 +89,36 @@ def appointment(request):
 		#context = {}
 		return render(request, 'home.html')
 
+'''
+def comment(request, slug):
+	#form = ContactForm()
+	template_name = 'blog_details.html'
+	post = get_object_or_404(Post, slug=slug)
+	comments = post.comments.all()
 
-def home(request):
-	prics = Pricing.objects.all()
-	context = {'prics': prics}
-	return render(request, 'home.html', context)
+	new_comment = None
 
+	if request.method == 'POST':
+		#form = ContactForm(request.POST)
 
-def pricing(request):
-	prics = Pricing.objects.all()
-	context = {'prics': prics}
-	return render(request, 'pricing.html', context)
+		comment_name = request.POST['message-name']
+		comment_email = request.POST['message-email']
+		msg = request.POST['message']
 
-	
-def about(request):
-	context = {}
-	return render(request, 'about.html', context)
+		obj =  Comment.objects.create(name=comment_name, 
+									 email=comment_email, 
+									 body=msg)
+		new_comment.post = post
 
+		obj.save()
 
-def service(request):
-	context = {}
-	return render(request, 'service.html', context)
+		context = {'comment_name':comment_name, 'comment_email':comment_email, 'msg':msg }
+		return render(request, 'blog_details.html', context )
 
-
-
-def post_to_facebook(request):
-	context = {}
-	return render(request, 'post_to_facebook.html', context)
-
-
+	else:
+		#context = {}
+		return render(request, 'blog_details.html')
+'''
 
 # function-based views
 '''
@@ -154,12 +155,29 @@ def blog_detail(request, slug):
 
 
 
-'''
-def blog_detail(request):
-	template_name = 'blog_details.html'
-	#post = get_object_or_404(Post, pk=pk)
-	#comments = post.comments
+def home(request):
+	prics = Pricing.objects.all()
+	context = {'prics': prics}
+	return render(request, 'home.html', context)
 
-	context = {}#'post':post, 'comments':comments,}
-	return render(request, template_name, context)
-'''
+
+def pricing(request):
+	prics = Pricing.objects.all()
+	context = {'prics': prics}
+	return render(request, 'pricing.html', context)
+
+	
+def about(request):
+	context = {}
+	return render(request, 'about.html', context)
+
+
+def service(request):
+	context = {}
+	return render(request, 'service.html', context)
+
+
+
+def post_to_facebook(request):
+	context = {}
+	return render(request, 'post_to_facebook.html', context)

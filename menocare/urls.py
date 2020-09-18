@@ -9,6 +9,10 @@ urlpatterns = [
     path('service.html', views.service, name='service'),
     path('appointment.html', views.appointment, name='appointment'),
 
+
+    # comment url
+    #path('blog_details.html', views.comment, name='comments'),
+
     #path('blog.html', views.blog, name='blog'),
 
 
