@@ -22,7 +22,7 @@ urlpatterns = [
     #path('blog_details.html', PostDetail.as_view(), name='blog_details'),
 
     path('<slug:slug>/', views.blog_detail, name='blog_details'),
-    #path('<slug:slug>/', views.blog_detail, name='blog_details'),
+    #path('blog_details.html', views.blog_detail, name='blog_details'),
     
 
 ]
