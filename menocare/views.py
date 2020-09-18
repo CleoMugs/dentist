@@ -146,9 +146,10 @@ class PostDetail(generic.DetailView):
 def blog_detail(request, slug):
 	template_name = 'blog_details.html'
 	post = get_object_or_404(Post, slug=slug)
-	comments = post.comments
+	comments = post.comments.all()
+	#print('CLEO')
 
-	context = {'post':post, 'comments':comments,}
+	context = {'post':post, 'comments':comments}
 	return render(request, template_name, context)
 
 

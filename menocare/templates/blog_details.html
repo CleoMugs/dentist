@@ -82,7 +82,6 @@
           <!-- Comments Area -->
           <div class="comment_area clearfix">
             <h5 class="title">{{ comments.count }} Comments</h5>
-    
             {% for comment in comments %}
               <ol>
                 <!--Single Comment Area -->
@@ -95,7 +94,7 @@
                     </div>
                     <!--Singleomment Meta-->
                     <div class="comment-meta">
-                      <a href="#" class="post-author">{{ comment.name }} / <span>{{ comment.created_on }}</span></a>
+                      <a href="#" class="post-author">{{ comment.name }} / <span>{{ comment.created_on|date:"d M Y" }}</span></a>
                       <p>{{ comment.content }}</p>
                       <a href="#" class="comment-reply">Reply</a>
                     </div>
