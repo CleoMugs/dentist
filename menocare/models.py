@@ -70,7 +70,6 @@ class Comment(models.Model):
 	body = models.TextField()
 	created_on = models.DateTimeField(auto_now_add=True)
 	photo = models.ImageField(default="default.jpg", upload_to='images')
-
 	active = models.BooleanField(default=True)
 
 

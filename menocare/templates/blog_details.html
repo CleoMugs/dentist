@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% load social_share %}
 {% block title %} MenoCare|Blog Details {% endblock %}
 {% block meta_description %} This is menocare website {% endblock %}
@@ -71,7 +72,7 @@
             Share</a>
 
             <a href="#" class="pinterest"><i class="fa fa-snapchat"></i> Share</a>
-            
+
             <!--a href="{% post_to_facebook object_or_url %}" class="facebook"><i class="fa fa-facebook"></i> Share</a>
 
             <a href="{% post_to_twitter object_or_url %}" class="tweet"><i class="fa fa-twitter"></i> Tweet</a-->
@@ -106,11 +107,31 @@
 
           </div>
 
-          <!-- Leave A Reply -->
           <div class="contact-form mt-30">
-            <h5 class="mb-30">Leave A Reply</h5>
+            {% if new_comment %}
+              <div class="alert alert-success" role="alert">
+                Your comment has been submitted successfully!
+              </div>
 
+            {% else %}
+            <h5 class="mb-30">Leave A Reply</h5>
             <!-- Form -->
+            <form action="#" method="post">
+              {{ comment_form | crispy }}
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" class="btn dento-btn">Reply</button>
+                </div>
+              </div>
+            </form>
+            {% endif %}
+          </div>
+
+          <!-- Leave A Reply -->
+          <!--div class="contact-form mt-30">
+            <h5 class="mb-30">Leave A Reply</h5>
+            
             <form action="#" method="post">
               {% csrf_token %}
               <div class="row">
@@ -128,8 +149,8 @@
                 </div>
               </div>
             </form>
+          </div-->
 
-          </div>
         </div>
 
         <!-- Dento Sidebar Area -->

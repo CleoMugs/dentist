@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'crispy_forms',
     'menocare',
 ]
 
@@ -159,3 +161,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 django_heroku.settings(locals())
 
 del DATABASES['default']['OPTIONS']['sslmode']
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

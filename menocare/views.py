@@ -3,7 +3,9 @@ from django.core.mail import send_mail
 
 from django.views import generic
 
-from .forms import ContactForm
+from django.http import HttpResponseRedirect
+
+from .forms import CommentForm, ContactForm
 
 from .models import Pricing, Contact, Appointment, Post, Comment
 
@@ -89,7 +91,7 @@ def appointment(request):
 		#context = {}
 		return render(request, 'home.html')
 
-'''
+
 def comment(request, slug):
 	#form = ContactForm()
 	template_name = 'blog_details.html'
@@ -105,20 +107,22 @@ def comment(request, slug):
 		comment_email = request.POST['message-email']
 		msg = request.POST['message']
 
-		obj =  Comment.objects.create(name=comment_name, 
+		new_comment =  Comment.objects.create(name=comment_name, 
 									 email=comment_email, 
 									 body=msg)
 		new_comment.post = post
 
-		obj.save()
+		new_comment.save()
+		return HttpResponseRedirect(request.path_info)
 
-		context = {'comment_name':comment_name, 'comment_email':comment_email, 'msg':msg }
+
+		context = {'post':post, 'comments':comments, 'new_comment':new_comment }
 		return render(request, 'blog_details.html', context )
 
 	else:
 		#context = {}
 		return render(request, 'blog_details.html')
-'''
+
 
 # function-based views
 '''
@@ -148,10 +152,48 @@ def blog_detail(request, slug):
 	template_name = 'blog_details.html'
 	post = get_object_or_404(Post, slug=slug)
 	comments = post.comments.all()
-	#print('CLEO')
 
-	context = {'post':post, 'comments':comments}
-	return render(request, template_name, context)
+	#####################
+
+	new_comment = None
+
+	if request.method == 'POST':
+
+		comment_form = CommentForm(data=request.POST)
+
+		if comment_form.is_valid():
+
+			# Create Comment object but don't save to database yet
+			new_comment = comment_form.save(commit=False)
+
+			# Assign the current post to the comment
+			new_comment.post = post
+
+			# Save the comment to the database
+			new_comment.save()
+			return HttpResponseRedirect(request.path_info)
+
+	else:
+		comment_form = CommentForm()
+
+	context = {'post':post, 'comments':comments, 'new_comment':new_comment, 'comment_form':comment_form}
+	return render(request, template_name, context)	
+
+	'''
+	comment_name = request.POST['message-name']
+	comment_email = request.POST['message-email']
+	msg = request.POST['message']
+
+	new_comment =  Comment.objects.create(name=comment_name, 
+								 email=comment_email, 
+								 body=msg)
+	new_comment.post.body = post
+	print(new_comment)
+	new_comment.save()
+	#return HttpResponseRedirect(request.path_info)
+	context = {'post':post, 'comments':comments, 'new_comment':new_comment }
+	return render(request, 'blog_details.html', context )
+	'''
 
 
 
