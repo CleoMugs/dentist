@@ -1027,10 +1027,10 @@ ul {
           max-width: 100%;
           width: 100%; } }
 
-.dento-pagination {
+.menocare-pagination {
   position: relative;
   z-index: 1; }
-  .dento-pagination .pagination .page-item .page-link {
+  .menocare-pagination .pagination .page-item .page-link {
     width: 40px;
     height: 40px;
     border-radius: 3px;
@@ -1041,11 +1041,11 @@ ul {
     background-color: transparent;
     color: #707070;
     font-size: 16px; }
-    .dento-pagination .pagination .page-item .page-link:focus, .dento-pagination .pagination .page-item .page-link:hover {
+    .menocare-pagination .pagination .page-item .page-link:focus, .menocare-pagination .pagination .page-item .page-link:hover {
       background-color: #00aeef;
       border-color: #00aeef;
       color: #ffffff; }
-  .dento-pagination .pagination .page-item.active .page-link {
+  .menocare-pagination .pagination .page-item.active .page-link {
     background-color: #00aeef;
     border-color: #00aeef;
     color: #ffffff; }
