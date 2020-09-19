@@ -23,9 +23,14 @@ class CommentAdmin(admin.ModelAdmin):
 	list_display = ('name', 'email', 'body',)
 	#prepopulated_fields = {'slug': ('name',)}
 
+class TestimonialAdmin(admin.ModelAdmin):
+	list_display = ('patient_name', 'content', 'who', 'photo')
+
+
 admin.site.register(Pricing, PricingAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Testimonial, TestimonialAdmin)
 

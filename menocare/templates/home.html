@@ -431,62 +431,38 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
   <!-- ***** Dento Dentist Area End ***** -->
+
   <!-- ***** Testimonials Area Start ***** -->
   <section class="testimonials-area section-padding-100 bg-img bg-gradient-overlay jarallax clearfix" style="background-image: url({% static 'img/bg-img/7  .jpg' %});">
     <div class="container">
       <div class="row">
+
         <div class="col-12">
           <!-- Testimonials Slides -->
           <div class="testimonials-slides owl-carousel">
-            <!-- Single Testimonials Slide -->
-            <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
-              <div class="testimonial-thumb">
-                <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
-              </div>
-              <!-- Content -->
-              <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
-              </div>
-            </div>
 
-            <!-- Single Testimonials Slide -->
-            <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
-              <div class="testimonial-thumb">
-                <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
+            {% for test in tests %}
+              <!-- Single Testimonials Slide -->
+              <div class="single-testimonial-slide d-flex align-items-center">
+                <!-- Thumbnail -->
+                <div class="testimonial-thumb">
+                  <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
+                </div>
+                <!-- Content -->
+                <div class="testimonial-content">
+                  <h5>“{{test.content}}”</h5>
+                  <h6>{{test.patient_name}} || <a href="#"></a>Twitter</h6>
+                  <p>{{test.who}}</p>
+                </div>
               </div>
-              <!-- Content -->
-              <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
-              </div>
-            </div>
+            {% endfor %}
 
-            <!-- Single Testimonials Slide -->
-            <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
-              <div class="testimonial-thumb">
-                <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
-              </div>
-              <!-- Content -->
-              <div class="testimonial-content">
-                <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
-                  very helpful. Excellent treatment and advice.”</h5>
-                <h6>Arron Ramsey</h6>
-                <p>Dental Patient</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

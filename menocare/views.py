@@ -7,7 +7,9 @@ from django.http import HttpResponseRedirect
 
 from .forms import CommentForm, ContactForm
 
-from .models import Pricing, Contact, Appointment, Post, Comment
+from .models import (Pricing, Contact, Appointment, 
+					 Post, Comment, Testimonial
+					 )
 
 # Create your views here.
 
@@ -200,7 +202,8 @@ def blog_detail(request, slug):
 
 def home(request):
 	prics = Pricing.objects.all()
-	context = {'prics': prics}
+	tests = Testimonial.objects.all()
+	context = {'prics': prics, 'tests': tests}
 	return render(request, 'home.html', context)
 
 
@@ -208,6 +211,15 @@ def pricing(request):
 	prics = Pricing.objects.all()
 	context = {'prics': prics}
 	return render(request, 'pricing.html', context)
+
+
+'''
+def testimonial(request):
+	tests = Testimonial.objects.all()
+	context = {'tests': tests}
+	return render(request, 'home.html', context)
+'''
+
 
 	
 def about(request):
@@ -218,7 +230,6 @@ def about(request):
 def service(request):
 	context = {}
 	return render(request, 'service.html', context)
-
 
 
 def post_to_facebook(request):

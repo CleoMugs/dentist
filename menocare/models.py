@@ -82,3 +82,14 @@ class Comment(models.Model):
 	def snippet(self):
 		return self.body[:100] + "..."
 
+
+
+class Testimonial(models.Model):
+	patient_name = models.CharField(max_length=80)
+	content = models.TextField()
+	who = models.CharField(default="Dental Patient", max_length=80)
+	created_on = models.DateTimeField(auto_now_add=True)
+	photo = models.ImageField(default="default.jpg", upload_to='images')
+
+	def __str__(self):
+		return '{self.patient_name}'
