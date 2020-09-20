@@ -209,9 +209,17 @@ def about(request):
 
 
 def service(request):
+
+	#####
+	template_name = 'service.html'
+	posts = Post.objects.order_by('-created_on') 
+	paginate_by = 2
+	#####
+
 	tests = Testimonial.objects.all()
-	context = {'tests': tests}
-	return render(request, 'service.html', context)
+	context = {'tests': tests, 'posts': posts}
+
+	return render(request, template_name, context)
 
 
 def post_to_facebook(request):
