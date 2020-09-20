@@ -209,7 +209,8 @@ def about(request):
 
 
 def service(request):
-	context = {}
+	tests = Testimonial.objects.all()
+	context = {'tests': tests}
 	return render(request, 'service.html', context)
 
 
