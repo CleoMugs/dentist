@@ -55,8 +55,8 @@
                 
 
                 <div class="post-meta">
-                  <a href="#"><i class="icon_clock_alt"></i>{{ post.created_on|date:"d M Y" }} </a>
-                  <a href="{% url 'blog_details' post.slug %}"><i class="icon_chat_alt"></i> {{ post.comments.count }} Comments</a>
+                  <i class="icon_clock_alt"></i>{{ post.created_on|date:"d M Y" }} 
+                  <a href="{% url 'blog_details' post.slug %}"><i class="icon_chat_alt ml-2"></i> {{ post.comments.count }} Comments</a>
                 </div>
               </div>
             </div>
@@ -64,18 +64,17 @@
 
           <!-- Pagination -->
           
-          <nav class="menocare-pagination mb-100">
+          <!--nav class="menocare-pagination mb-100">
             <ul class="pagination">
               <li class="page-item active"><a class="page-link" href="#">1</a></li>
               <li class="page-item"><a class="page-link" href="#">2</a></li>
               <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
             </ul>
-          </nav>
-
+          </nav-->
 
           {% if is_paginated %}
-            <nav aria-label="Page navigation conatiner">
-              <ul class="pagination justify-content-center">
+            <nav class="menocare-pagination mb-100">
+              <ul class="pagination justify-content-left">
                   {% if page_obj.has_previous %}
                   <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                   {% endif %}
@@ -86,15 +85,14 @@
               </ul>
             </nav>
           {% endif %}
-
-
-
+          
         </div>
+
+        
 
         <!-- Dento Sidebar Area -->
         <div class="col-12 col-lg-4">
           <div class="dento-sidebar">
-
             <!-- Single Widget Area -->
             <div class="single-widget-area search-widget">
               <form action="#" method="get">
@@ -103,65 +101,10 @@
                 <button type="submit"><i class="icon_search"></i></button>
               </form>
             </div>
-
-            <!-- Single Widget Area -->
-            <div class="single-widget-area catagories-widget">
-              <!--h5 class="widget-title">Categories</h5-->
-
-              <!-- catagories list -->
-              <!--ul class="catagories-list">
-                <li><a href="#">Dentistry Articles</a></li>
-                <li><a href="#">Oral Health</a></li>
-                <li><a href="#">Dental Technology</a></li>
-                <li><a href="#">Kids Care Dental</a></li>
-                <li><a href="#">Healthy Smiles, Inside &amp; Out</a></li>
-              </ul-->
-            </div>
-
-            <!-- Single Widget Area -->
-            <!--div class="single-widget-area news-widget">
-              <h5 class="widget-title">Recent News</h5>
-              <Single News Area >
-              <div class="single-news-area d-flex align-items-center">
-                <div class="blog-thumbnail">
-                  <img src="{% static 'img/bg-img/21.jpg' %}" alt="">
-                </div>
-                <div class="blog-content">
-                  <a href="#" class="post-title">Tooth decay: why good dental hygiene is important</a>
-                  <span class="post-date">28 Sep 2018</span>
-                </div>
-              </div-->
-
-              <!-- Single News Area -->
-              <!--div class="single-news-area d-flex align-items-center">
-                <div class="blog-thumbnail">
-                  <img src="{% static 'img/bg-img/22.jpg' %}" alt="">
-                </div>
-                <div class="blog-content">
-                  <a href="#" class="post-title">Six reasons your breath might smell like poop</a>
-                  <span class="post-date">28 Sep 2018</span>
-                </div>
-              </div-->
-
-              <!-- Single News Area -->
-              <!--div class="single-news-area d-flex align-items-center">
-                <div class="blog-thumbnail">
-                  <img src="{% static 'img/bg-img/23.jpg' %}" alt="">
-                </div>
-                <div class="blog-content">
-                  <a href="#" class="post-title">Everything you need to know about sinus infection</a>
-                  <span class="post-date">28 Sep 2018</span>
-                </div>
-              </div>
-            </div-->
-
-            <!-- Single Widget Area -->
-            <!--div class="single-widget-area adds-widget">
-              <a href="#"><img class="w-100" src="{% static 'img/bg-img/adds.png' %}" alt=""></a>
-            </div-->
-
           </div>
         </div>
+
+
       </div>
     </div>
   </section>

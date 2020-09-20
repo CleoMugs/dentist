@@ -120,12 +120,31 @@
           <!-- Testimonials Slides -->
           <div class="testimonials-slides owl-carousel">
             <!-- Single Testimonials Slide -->
-            <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
+
+            {% for test in tests %}
+              <!-- Single Testimonials Slide -->
+              <div class="single-testimonial-slide d-flex align-items-center">
+                <!-- Thumbnail -->
+                <div class="testimonial-thumb">
+                  <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
+                </div>
+                <!-- Content -->
+                <div class="testimonial-content">
+                  <h5>“{{test.content}}”</h5>
+                  <h6>{{test.patient_name}} || <a href="#"></a>Twitter</h6>
+                  <p>{{test.who}}</p>
+                </div>
+              </div>
+            {% endfor %}
+
+
+
+            <!--div class="single-testimonial-slide d-flex align-items-center">
+              
               <div class="testimonial-thumb">
                 <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
               </div>
-              <!-- Content -->
+              
               <div class="testimonial-content">
                 <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
                   very helpful. Excellent treatment and advice.”</h5>
@@ -134,13 +153,13 @@
               </div>
             </div>
 
-            <!-- Single Testimonials Slide -->
+            
             <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
+              
               <div class="testimonial-thumb">
                 <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
               </div>
-              <!-- Content -->
+              
               <div class="testimonial-content">
                 <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
                   very helpful. Excellent treatment and advice.”</h5>
@@ -149,20 +168,21 @@
               </div>
             </div>
 
-            <!-- Single Testimonials Slide -->
+           
             <div class="single-testimonial-slide d-flex align-items-center">
-              <!-- Thumbnail -->
+             
               <div class="testimonial-thumb">
                 <img src="{% static 'img/bg-img/8.jpg' %}" alt="">
               </div>
-              <!-- Content -->
+              
               <div class="testimonial-content">
                 <h5>“I'd been avoiding the dentist for years due to bad experiences. A reminder SMS is sent the working day beforehand. I also had a call confirming appointment. I have been a patient ever since. My dentist is very reassuring and
                   very helpful. Excellent treatment and advice.”</h5>
                 <h6>Arron Ramsey</h6>
                 <p>Dental Patient</p>
               </div>
-            </div>
+            </div-->
+            
           </div>
         </div>
       </div>

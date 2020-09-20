@@ -95,7 +95,6 @@ def appointment(request):
 
 
 def comment(request, slug):
-	#form = ContactForm()
 	template_name = 'blog_details.html'
 	post = get_object_or_404(Post, slug=slug)
 	comments = post.comments.all()
@@ -103,7 +102,6 @@ def comment(request, slug):
 	new_comment = None
 
 	if request.method == 'POST':
-		#form = ContactForm(request.POST)
 
 		comment_name = request.POST['message-name']
 		comment_email = request.POST['message-email']
@@ -139,20 +137,12 @@ class PostList(generic.ListView):
 	template_name = 'blog.html'
 	queryset = Post.objects.order_by('-created_on') 
 	context_object_name = 'posts' 
-	paginate_by = 3
+	paginate_by = 2
 	
-
-# class-based views
-'''
-class PostDetail(generic.DetailView):
-	model = Post
-	template_name = 'blog_details.html'
-	query_pk_and_slug = True
-
-'''
 
 def blog_detail(request, slug):
 	template_name = 'blog_details.html'
+	paginate_by = 2
 	post = get_object_or_404(Post, slug=slug)
 	comments = post.comments.all()
 
@@ -213,15 +203,6 @@ def pricing(request):
 	return render(request, 'pricing.html', context)
 
 
-'''
-def testimonial(request):
-	tests = Testimonial.objects.all()
-	context = {'tests': tests}
-	return render(request, 'home.html', context)
-'''
-
-
-	
 def about(request):
 	context = {}
 	return render(request, 'about.html', context)

@@ -1505,9 +1505,9 @@ ul {
 .contact-information {
   position: relative;
   z-index: 1;
-  padding: 30px 50px;
+  padding: 10px 30px;
   background-color: #00aeef;
-  border-radius: 3px; }
+  border-radius: 10px; }
   @media only screen and (max-width: 767px) {
     .contact-information {
       margin-bottom: 100px; } }
