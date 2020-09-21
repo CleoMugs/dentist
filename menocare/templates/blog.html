@@ -65,10 +65,12 @@
           <!-- Pagination -->
 
           {% if is_paginated %}
+            <nav class="menocare-pagination mt-5 mb-5">
+              <ul class="pagination justify-content-center">
 
               {% if page_obj.has_previous %}    
-                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
-                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">First</a>
+                <li class="page-item"><a class="btn btn-outline-info mb-4" href="?page=1">First</a></li>
+                <li class="page-item"><a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
               {% endif %}
 
               {% for num in page_obj.paginator.page_range %}
@@ -84,14 +86,22 @@
                 <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
               {% endif %}
 
-             
+             </ul>
+            </nav>
+
           {% endif %}
 
-
+          <!--nav class="menocare-pagination mb-100">
+            <ul class="pagination">
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+          </nav-->
 
 
           {% if is_paginated %}
-            <nav class="menocare-pagination mb-5 mt-5">
+            <!--nav class="menocare-pagination mb-5 mt-5">
               <ul class="pagination justify-content-center">
 
                   {% if page_obj.has_previous %}
@@ -102,17 +112,11 @@
                     <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
                   {% endif %}
               </ul>
-            </nav>
+            </nav-->
           {% endif %}
 
 
-          <!--nav class="menocare-pagination mb-100">
-            <ul class="pagination">
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-            </ul>
-          </nav-->
+          
           
         </div>
 
