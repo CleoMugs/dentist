@@ -63,7 +63,49 @@
           {% endfor %}
 
           <!-- Pagination -->
-          
+
+          {% if is_paginated %}
+
+              {% if page_obj.has_previous %}    
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">First</a>
+              {% endif %}
+
+              {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                  <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                  <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+              {% endfor %}
+
+              {% if page_obj.has_next %}    
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+              {% endif %}
+
+             
+          {% endif %}
+
+
+
+
+          {% if is_paginated %}
+            <nav class="menocare-pagination mb-5 mt-5">
+              <ul class="pagination justify-content-center">
+
+                  {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a></li>
+                  {% endif %}
+
+                  {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
+                  {% endif %}
+              </ul>
+            </nav>
+          {% endif %}
+
+
           <!--nav class="menocare-pagination mb-100">
             <ul class="pagination">
               <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -71,20 +113,6 @@
               <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
             </ul>
           </nav-->
-
-          {% if is_paginated %}
-            <nav class="menocare-pagination mb-100">
-              <ul class="pagination justify-content-left">
-                  {% if page_obj.has_previous %}
-                  <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-                  {% endif %}
-                  {% if page_obj.has_next %}
-                  <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-                  {% endif %}
-              </ul>
-            </nav>
-          {% endif %}
           
         </div>
 

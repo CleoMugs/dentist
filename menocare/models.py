@@ -44,7 +44,7 @@ class Post(models.Model):
 
 
 	slug = models.SlugField(max_length=200, unique=True)
-	author = models.CharField(default="MenoCare", max_length=200, unique=True, null=True)
+	author = models.CharField(default="MenoCare", max_length=200, null=True)
 	
 	#status = models.IntegerField(choices=STATUS, default=0)
 
@@ -61,11 +61,12 @@ class Post(models.Model):
 
 		return reverse("blog_detail", kwargs=kwargs)
 
+	'''
 	def save(self, *args, **kwargs):
 		value = self.title
 		self.slug = slugify(value, allow_unicode=True)
 		super().save(*args, **kwargs)
-
+	'''
 	
 
 class Comment(models.Model):

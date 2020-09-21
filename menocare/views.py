@@ -108,13 +108,13 @@ def comment(request, slug):
 		msg = request.POST['message']
 
 		new_comment =  Comment.objects.create(name=comment_name, 
-									 email=comment_email, 
-									 body=msg)
+									 		  email=comment_email, 
+									 		  body=msg
+									 		 )
 		new_comment.post = post
 
 		new_comment.save()
 		return HttpResponseRedirect(request.path_info)
-
 
 		context = {'post':post, 'comments':comments, 'new_comment':new_comment }
 		return render(request, 'blog_details.html', context )
@@ -135,7 +135,7 @@ def blog(request):
 # class-based views
 class PostList(generic.ListView):
 	template_name = 'blog.html'
-	queryset = Post.objects.order_by('-created_on') 
+	queryset = Post.objects.order_by('-created_on')  # or model = Post
 	context_object_name = 'posts' 
 	paginate_by = 2
 	
@@ -145,8 +145,6 @@ def blog_detail(request, slug):
 	paginate_by = 2
 	post = get_object_or_404(Post, slug=slug)
 	comments = post.comments.all()
-
-	#####################
 
 	new_comment = None
 
@@ -197,19 +195,18 @@ def home(request):
 	return render(request, 'home.html', context)
 
 
+def about(request):
+	context = {}
+	return render(request, 'about.html', context)
+
+
 def pricing(request):
 	prics = Pricing.objects.all()
 	context = {'prics': prics}
 	return render(request, 'pricing.html', context)
 
 
-def about(request):
-	context = {}
-	return render(request, 'about.html', context)
-
-
 def service(request):
-
 	#####
 	template_name = 'service.html'
 	posts = Post.objects.order_by('-created_on') 
