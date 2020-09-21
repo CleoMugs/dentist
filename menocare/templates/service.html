@@ -177,7 +177,7 @@
                   <div class="blog-content">
                     <a href="{% url 'blog_details' post.slug %}" class="post-title">{{ post.title }}</a>
 
-                    <p>{{ post.content|safe|truncatewords_html:20 }}....<a href="{% url 'blog_details' post.slug %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
+                    <p>{{ post.content|safe|truncatewords_html:30 }}....<a href="{% url 'blog_details' post.slug %}" class="btn btn-primary mt-0 ml-0 mb-1 p-0">Read More &darr;</a></p>
 
                     <div class="post-meta">
                       <i class="icon_clock_alt"></i> {{ post.created_on|date:"d M Y" }}
