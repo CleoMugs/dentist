@@ -79,8 +79,6 @@
 
           </div>
 
-
-
           <!-- Comments Area -->
           <div class="comment_area clearfix">
             <h5 class="title">{{ comments.count }} Comments</h5>
@@ -105,18 +103,50 @@
               </ol>
             {% endfor %}
 
-            {% if is_paginated %}
-              <nav class="menocare-pagination mb-100">
-                <ul class="pagination justify-content-left">
-                    {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a></li>
-                    {% endif %}
-                    {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
 
+            {% if comments.paginator.num_pages > 1 %}
+
+              {% if comments.has_previous %}
+
+                  <a href="?page={{ comments.previous_page_number }}">Previous|</a>
+
+              {% endif %}
+
+              <span>Page {{ comments.number }} of {{ comments.paginator.num_pages }}</span>
+
+              {% if comments.has_next %}
+
+                <a href="?page={{ comments.next_page_number }}"> |Next</a>
+
+              {% endif %}
+
+            {% endif %}
+
+             <!-- Pagination -->
+            {% if is_paginated %}
+              <!--nav class="menocare-pagination mt-5 mb-5">
+                <ul class="pagination justify-content-center">
+
+                  {% if page_obj.has_previous %}    
+                    <li class="page-item"><a class="btn btn-outline-info mb-4" href="?page=1">First</a></li>
+                    <li class="page-item"><a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                  {% endif %}
+
+                  {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                      <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                    {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                      <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
                     {% endif %}
+                  {% endfor %}
+
+                  {% if page_obj.has_next %}    
+                    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                  {% endif %}
+
                 </ul>
-              </nav>
+              </nav-->
             {% endif %}
 
           </div>
@@ -141,30 +171,6 @@
             </form>
             {% endif %}
           </div>
-
-          <!-- Leave A Reply -->
-          <!--div class="contact-form mt-30">
-            <h5 class="mb-30">Leave A Reply</h5>
-            
-            <form action="#" method="post">
-              {% csrf_token %}
-              <div class="row">
-                <div class="col-lg-6">
-                  <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
-                </div>
-                <div class="col-lg-6">
-                  <input type="email" name="message-email" class="form-control mb-30" placeholder="Your Email">
-                </div>
-                <div class="col-12">
-                  <textarea name="message" class="form-control mb-30" placeholder="Your Message"></textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn dento-btn">Reply</button>
-                </div>
-              </div>
-            </form>
-          </div-->
-
         </div>
 
         <!-- Dento Sidebar Area -->

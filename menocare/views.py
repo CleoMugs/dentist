@@ -11,6 +11,8 @@ from .models import (Pricing, Contact, Appointment,
 					 Post, Comment, Testimonial
 					 )
 
+from django.core.paginator import Paginator
+
 # Create your views here.
 
 
@@ -142,9 +144,14 @@ class PostList(generic.ListView):
 
 def blog_detail(request, slug):
 	template_name = 'blog_details.html'
-	paginate_by = 2
 	post = get_object_or_404(Post, slug=slug)
+
 	comments = post.comments.all()
+
+	paginator = Paginator(comments, 2)
+	page = request.GET.get('page')
+	comments = paginator.get_page(page)
+	
 
 	new_comment = None
 
@@ -185,8 +192,6 @@ def blog_detail(request, slug):
 	context = {'post':post, 'comments':comments, 'new_comment':new_comment }
 	return render(request, 'blog_details.html', context )
 	'''
-
-
 
 def home(request):
 	prics = Pricing.objects.all()
