@@ -16,7 +16,7 @@ import dotenv
 from decouple import config
 config.encoding = 'cp1251'
 from unipath import Path
-import django_heroku
+#import django_heroku
 
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(override=True)
@@ -158,9 +158,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
-django_heroku.settings(locals())
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-del DATABASES['default']['OPTIONS']['sslmode']
+
+#django_heroku.settings(locals())
+
+#del DATABASES['default']['OPTIONS']['sslmode']
 
 
 

@@ -15,7 +15,9 @@ unipath = "*"
 django-social-share = "*"
 pillow = "*"
 django-crispy-forms = "*"
+django-heroku = "*"
 config = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.8"
