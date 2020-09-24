@@ -8,14 +8,14 @@ verify_ssl = true
 [packages]
 django = "*"
 gunicorn = "*"
-django-heroku = "*"
-python-decouple = "*"
+python-decouple = "==3.3"
 python-dotenv = "*"
 dj-database-url = "*"
 unipath = "*"
 django-social-share = "*"
 pillow = "*"
 django-crispy-forms = "*"
+config = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
